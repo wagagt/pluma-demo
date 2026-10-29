@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-tema="concreto" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
-  <link rel="stylesheet" href="css/app.css?v=6">
+  <script>
+    // Tema antes de pintar: ?tema= en la URL gana a la preferencia guardada.
+    (function () {
+      var temas = ["concreto", "neblina", "cal", "noche"], t = null;
+      var m = location.search.match(/[?&]tema=([a-z]+)/);
+      if (m && temas.indexOf(m[1]) >= 0) t = m[1];
+      if (!t) { try { t = localStorage.getItem("pluma-tema"); } catch (e) {} }
+      if (temas.indexOf(t) < 0) t = "concreto";
+      document.documentElement.dataset.tema = t;
+      document.documentElement.dataset.theme = t === "noche" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="css/app.css?v=7">
 </head>
 <body>
   <header id="controles" class="controles" aria-label="Controles de la demo"></header>
@@ -17,13 +29,13 @@
   <section id="presentacion" class="presentacion" aria-label="Presentación guiada" aria-live="polite" hidden></section>
   <div id="avisos" class="avisos" aria-live="polite"></div>
 
-  <script src="js/seed.js?v=6"></script>
-  <script src="js/store.js?v=6"></script>
-  <script src="js/ui.js?v=6"></script>
-  <script src="js/app.js?v=6"></script>
-  <script src="js/garita.js?v=6"></script>
-  <script src="js/vecino.js?v=6"></script>
-  <script src="js/supervisor.js?v=6"></script>
-  <script src="js/presentacion.js?v=6"></script>
+  <script src="js/seed.js?v=7"></script>
+  <script src="js/store.js?v=7"></script>
+  <script src="js/ui.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
+  <script src="js/garita.js?v=7"></script>
+  <script src="js/vecino.js?v=7"></script>
+  <script src="js/supervisor.js?v=7"></script>
+  <script src="js/presentacion.js?v=7"></script>
 </body>
 </html>

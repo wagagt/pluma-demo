@@ -79,6 +79,8 @@ window.Pluma = window.Pluma || {};
         ${icono("reloj")}<span data-reloj-fecha>${esc(T.fecha(S.ahora()))}</span><strong data-reloj>${T.hora(S.ahora())}</strong>
         ${sim ? `<em>simulado</em>` : ""}
       </div>
+      <label class="demo-campo"><span>Tema</span>
+        <select data-entrada="cambiar-tema">${TEMAS.map(([id, n]) => `<option value="${id}" ${id === document.documentElement.dataset.tema ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <div class="demo-botones">
         <button type="button" data-accion="reloj" data-ms="${T.H}">+1 h</button>
         <button type="button" data-accion="reloj" data-ms="${2 * T.H}">+2 h</button>
@@ -89,6 +91,13 @@ window.Pluma = window.Pluma || {};
       </div>`;
   }
 
+  const TEMAS = [["concreto", "Concreto"], ["neblina", "Neblina"], ["cal", "Cal"], ["noche", "Noche"]];
+  Pluma.entrada("cambiar-tema", (el) => {
+    const raiz = document.documentElement;
+    raiz.dataset.tema = el.value;
+    raiz.dataset.theme = el.value === "noche" ? "dark" : "light";
+    try { localStorage.setItem("pluma-tema", el.value); } catch (_) {}
+  });
   Pluma.entrada("cambiar-rol", (el) => {
     const r = ROLES.find((x) => x.id === el.value);
     S.e.sesion.rol = r ? r.id : null;

@@ -27,6 +27,9 @@
   --placa-tinta: #14181B;
   --foco: #1F4E9C;
   --accion-tinta: var(--azul-placa); /* azul para texto sobre tintes */
+  --barra-garita: var(--asfalto);
+  --demo-fondo: #20262B; --demo-texto: #C9D0CA; --demo-tenue: #8E9992;
+  --demo-control: #2E363C; --demo-control-hover: #39434A; --demo-borde: #47525A; --demo-linea: #000;
 
   --f-cuerpo: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
   --f-rotulo: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
@@ -59,6 +62,25 @@
   color-scheme: dark;
 }
 
+/* Temas de la demo (selector «Tema» en los controles). Por defecto: concreto.
+   «noche» reutiliza los tokens oscuros vía data-theme="dark". */
+:root[data-tema="concreto"] {
+  --verde-paso: #256640;
+  --fondo: #DCDFDD; --superficie: #F3F4F2; --superficie-2: #E7E9E7;
+  --texto-tenue: #4F585E; --borde: #C2C7C3; --borde-fuerte: #8D9590;
+  --mesa: #BFC4C0; --renglon: #CFD7E2; --barra-garita: #3A434A;
+  --demo-fondo: #4E585F; --demo-texto: #EEF1EF; --demo-tenue: #C7CEC9;
+  --demo-control: #5D686F; --demo-control-hover: #69757D; --demo-borde: #76828A; --demo-linea: #3E474D;
+}
+:root[data-tema="neblina"] {
+  --verde-paso: #256640;
+  --fondo: #D9E0E6; --superficie: #F4F7F9; --superficie-2: #E6ECF0;
+  --texto-tenue: #4C5965; --borde: #BFC9D2; --borde-fuerte: #8996A2;
+  --mesa: #BAC4CD; --renglon: #CCD8E6; --barra-garita: #33414D;
+  --demo-fondo: #4A5866; --demo-texto: #EEF2F5; --demo-tenue: #C5CFD8;
+  --demo-control: #586777; --demo-control-hover: #657585; --demo-borde: #738393; --demo-linea: #3A4652;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -83,17 +105,17 @@ small { font-size: var(--t-14); }
 .controles {
   position: sticky; top: 0; z-index: 30;
   display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
-  padding: 8px 16px; background: #20262B; color: #C9D0CA; font-size: var(--t-14);
-  border-bottom: 1px solid #000;
+  padding: 8px 16px; background: var(--demo-fondo); color: var(--demo-texto); font-size: var(--t-14);
+  border-bottom: 1px solid var(--demo-linea);
 }
 .demo-marca { color: #fff; text-decoration: none; font-family: var(--f-rotulo); font-weight: 700; font-size: var(--t-20); }
-.demo-marca span { font-weight: 500; color: #8E9992; font-size: var(--t-16); }
+.demo-marca span { font-weight: 500; color: var(--demo-tenue); font-size: var(--t-16); }
 .demo-campo { display: inline-flex; align-items: center; gap: 6px; }
 .demo-campo select, .controles button {
-  font: inherit; color: #E9ECE8; background: #2E363C; border: 1px solid #47525A; border-radius: 6px; padding: 4px 8px; min-height: 32px;
+  font: inherit; color: #fff; background: var(--demo-control); border: 1px solid var(--demo-borde); border-radius: 6px; padding: 4px 8px; min-height: 32px;
 }
 .controles button { cursor: pointer; }
-.controles button:hover { background: #39434A; }
+.controles button:hover { background: var(--demo-control-hover); }
 .demo-reloj { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; border-radius: 6px; }
 .demo-reloj strong { color: #fff; font-variant-numeric: tabular-nums; }
 .demo-reloj.simulado { background: #4A3D0E; color: #F5DD8A; }
@@ -235,7 +257,7 @@ body.tablet-real .escenario { padding: 0; }
 body.tablet-real .tablet { border-radius: 0; box-shadow: none; }
 
 .garita { display: grid; grid-template-rows: 68px 1fr 88px; height: 100%; font-size: 18px; }
-.g-barra { display: flex; align-items: center; gap: 28px; padding: 0 24px; background: var(--asfalto); color: #E4E8E3; }
+.g-barra { display: flex; align-items: center; gap: 28px; padding: 0 24px; background: var(--barra-garita); color: #E4E8E3; }
 .g-lugar { display: grid; line-height: 1.15; }
 .g-lugar strong { font-family: var(--f-rotulo); font-size: var(--t-25); color: #fff; }
 .g-lugar span { font-size: var(--t-14); color: #AEB8B1; }
