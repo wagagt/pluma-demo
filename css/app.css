@@ -136,7 +136,9 @@ small { font-size: var(--t-14); }
   border: 0; background: transparent; color: inherit; font-family: inherit; font-weight: 700; line-height: 1;
   width: 100%; text-transform: uppercase; outline: none;
 }
-.placa-xl input.placa-num { font-size: 84px; }
+.placa-xl input.placa-num { font-size: 84px; min-width: 0; }
+/* El input toma su ancho de la placa, no de su tamaño natural (que a 84 px desborda la tablet). */
+.placa-editable { width: 420px; min-width: 0; }
 .placa-editable:focus-within { box-shadow: 0 0 0 4px var(--amarillo-pluma); }
 .peaton { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
 .peaton-grande { font-family: var(--f-rotulo); font-size: 48px; }
@@ -295,7 +297,8 @@ body.tablet-real .tablet { border-radius: 0; box-shadow: none; }
 .barrido { animation: barrido 1s ease-in-out infinite alternate; }
 @keyframes barrido { from { opacity: .25; } to { opacity: 1; } }
 
-.placa-lectura { display: flex; gap: 28px; align-items: center; }
+.placa-lectura { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; }
+.placa-nota { flex: 1 1 240px; min-width: 0; }
 .placa-nota p { margin: 0 0 6px; }
 .corregida { color: var(--verde-paso); font-weight: 700; }
 .registro h2 { font-size: var(--t-25); margin-top: 18px; display: flex; align-items: center; gap: 10px; }
