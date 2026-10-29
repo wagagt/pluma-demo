@@ -312,7 +312,14 @@ body.tablet-real .tablet { border-radius: 0; box-shadow: none; }
 .resultados span { color: var(--texto-tenue); }
 .destino .btn-texto { margin-top: 6px; }
 .confirmar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; padding-top: 16px; border-top: 1.5px solid var(--borde); }
-.falta { color: var(--texto-tenue); margin: 0; }
+.falta { display: flex; align-items: center; gap: 10px; margin: 0; padding: 8px 12px; border-radius: var(--r-control);
+  background: var(--tinte-pluma); color: var(--texto); font-weight: 700; }
+.falta .ico { color: #8A6500; width: 22px; height: 22px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .falta .ico, :root:not([data-theme="light"]) .alerta-pluma > .ico { color: var(--amarillo-pluma); } }
+:root[data-theme="dark"] .falta .ico, :root[data-theme="dark"] .alerta-pluma > .ico { color: var(--amarillo-pluma); }
+.confirmar:has(.falta[hidden]) { justify-content: flex-end; }
+.confirmar .falta { flex: 1 1 auto; }
+.confirmar .fila-botones { flex: none; flex-wrap: nowrap; }
 .peaton-datos { max-width: 520px; }
 
 .salida-lista .buscador input { font-size: var(--t-20); min-height: 56px; }
@@ -377,7 +384,7 @@ body.tablet-real .tablet { border-radius: 0; box-shadow: none; }
 .app-quien small { color: var(--texto-tenue); }
 .app-quien .ico { width: 28px; height: 28px; color: var(--accion); }
 .app-nav { display: flex; gap: 4px; overflow-x: auto; padding: 0 16px; border-bottom: 1.5px solid var(--borde); }
-.app-nav a { padding: 12px 12px 10px; white-space: nowrap; color: var(--texto-tenue); text-decoration: none; font-weight: 700; border-bottom: 3px solid transparent; }
+.app-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 12px 12px 10px; white-space: nowrap; color: var(--texto-tenue); text-decoration: none; font-weight: 700; border-bottom: 3px solid transparent; }
 .app-nav a[aria-current] { color: var(--texto); border-bottom-color: var(--accion); }
 .app-contenido { padding: 20px 16px; }
 .app-contenido > section { margin-top: 28px; }
@@ -433,7 +440,7 @@ body.tablet-real .tablet { border-radius: 0; box-shadow: none; }
 .lateral .app-marca { display: block; padding: 0 20px; }
 .lateral-rol { padding: 0 20px; color: var(--texto-tenue); font-size: var(--t-14); }
 .lateral nav { display: grid; margin-top: 16px; }
-.lateral nav a { padding: 10px 20px; color: var(--texto); text-decoration: none; font-weight: 700; border-left: 4px solid transparent; }
+.lateral nav a { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: var(--texto); text-decoration: none; font-weight: 700; border-left: 4px solid transparent; }
 .lateral nav a[aria-current] { border-left-color: var(--accion); background: var(--tinte-azul); color: var(--accion-tinta); }
 .app-escritorio .app-contenido { padding: 24px 32px 180px; min-width: 0; }
 .cabecera-pagina { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; margin-bottom: 20px; }

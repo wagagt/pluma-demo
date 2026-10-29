@@ -207,7 +207,7 @@
     }
     const falta = faltante();
     return `<div class="confirmar">
-      <p class="falta" aria-live="polite">${esc(falta)}</p>
+      <p class="falta" aria-live="polite" ${falta ? "" : "hidden"}>${icono("aviso")}<span>${esc(falta)}</span></p>
       <div class="fila-botones">
         <button type="button" class="btn btn-quieto" data-accion="ent-cancelar">Cancelar</button>
         <button type="submit" class="btn btn-principal btn-grande" ${falta ? "disabled" : ""}>Registrar ingreso</button>
@@ -220,7 +220,9 @@
     const c = document.querySelector(".confirmar");
     if (!c) return;
     const falta = faltante();
-    c.querySelector(".falta").textContent = falta;
+    const nota = c.querySelector(".falta");
+    nota.querySelector("span").textContent = falta;
+    nota.hidden = !falta;
     c.querySelector("[type=submit]").disabled = !!falta;
   }
 

@@ -15,17 +15,17 @@
   function marcoVecino(activo, contenido) {
     const viv = R.vivienda(CASA);
     const nav = [
-      ["inicio", "Mis visitas", "#/vecino"],
-      ["pase", "Crear pase", "#/vecino/pase"],
-      ["incidente", "Reportar", "#/vecino/incidente"],
-      ["placa", "Consultar placa", "#/vecino/placa"],
+      ["inicio", "Mis visitas", "#/vecino", "casa"],
+      ["pase", "Crear pase", "#/vecino/pase", "qr"],
+      ["incidente", "Reportar", "#/vecino/incidente", "aviso"],
+      ["placa", "Consultar placa", "#/vecino/placa", "lupa"],
     ];
     return `<div class="app app-vecino">
       <header class="app-cabecera">
         <a class="app-marca" href="#/vecino">Pluma</a>
         <div class="app-quien">${icono("casa")}<span><strong>${esc(viv.numero)}, familia López</strong><small>${esc(R.colonia(viv.coloniaId).nombre)}</small></span></div>
       </header>
-      <nav class="app-nav" aria-label="Secciones">${nav.map(([id, t, h]) => `<a href="${h}" ${id === activo ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>
+      <nav class="app-nav" aria-label="Secciones">${nav.map(([id, t, h, ico]) => `<a href="${h}" ${id === activo ? 'aria-current="page"' : ""}>${icono(ico)}${t}</a>`).join("")}</nav>
       <main class="app-contenido">${contenido}</main>
     </div>`;
   }

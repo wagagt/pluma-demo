@@ -22,13 +22,13 @@
 
   function marco(rol, activo, contenido) {
     const nav = rol === "supervisor"
-      ? [["panel", "Panel", "#/supervisor"], ["historial", "Historial", "#/supervisor/historial"], ["incidentes", "Incidentes", "#/supervisor/incidentes"]]
-      : [["viviendas", "Viviendas", "#/admin"], ["garitas", "Colonias y garitas", "#/admin/garitas"], ["politicas", "Permanencia", "#/admin/politicas"]];
+      ? [["panel", "Panel", "#/supervisor", "panel"], ["historial", "Historial", "#/supervisor/historial", "lista"], ["incidentes", "Incidentes", "#/supervisor/incidentes", "aviso"]]
+      : [["viviendas", "Viviendas", "#/admin", "casa"], ["garitas", "Colonias y garitas", "#/admin/garitas", "pluma"], ["politicas", "Permanencia", "#/admin/politicas", "reloj"]];
     return `<div class="app app-escritorio">
       <aside class="lateral">
         <a class="app-marca" href="${nav[0][2]}">Pluma</a>
         <p class="lateral-rol">${rol === "supervisor" ? "Supervisión de seguridad" : "Administración"}</p>
-        <nav aria-label="Secciones">${nav.map(([id, t, h]) => `<a href="${h}" ${id === activo ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>
+        <nav aria-label="Secciones">${nav.map(([id, t, h, ico]) => `<a href="${h}" ${id === activo ? 'aria-current="page"' : ""}>${icono(ico)}${t}</a>`).join("")}</nav>
       </aside>
       <main class="app-contenido">${contenido}</main>
     </div>`;

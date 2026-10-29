@@ -56,6 +56,10 @@ window.Pluma = window.Pluma || {};
     lupa: '<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>',
     casa: '<path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/>',
     escudo: '<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/>',
+    panel: '<path d="M4 20V10m5.5 10V4M15 20v-7m5.5 7V8M3 20h18"/>',
+    lista: '<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.5m-.5 6h.5m-.5 6h.5"/>',
+    pluma: '<path d="M4 20V8m0 4h16M4 8h3v8H4"/><path d="M9 12v-1m4 1v-1m4 1v-1"/>',
+    ajustes: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"/>',
   };
   UI.icono = (n) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONOS[n] || ""}</svg>`;
 
